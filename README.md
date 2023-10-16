@@ -116,3 +116,6 @@ WHERE prd_valor > (SELECT AVG(prd_valor) FROM produtos);
 ```
 
 ![view7](acima_media.png)
+
+## Código:
+![codigo](produto.sql)
