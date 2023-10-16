@@ -65,4 +65,14 @@ JOIN marcas ON marcas.mrc_id = produtos.prd_marca_id;
 
 ### Crie uma view que mostra todos os produtos com estoque abaixo do mínimo
 
+```sql
+-- Cria uma view chamada `Abaixo_media`
+CREATE VIEW Abaixo_media AS
 
+-- Seleciona todos os registros da tabela `produtos` onde a quantidade em estoque é menor que o estoque mínimo
+SELECT *
+FROM produtos
+WHERE prd_qtd_estoque < prd_estoque_mim;
+
+```
+![view4](abaixo_estoque.png)
