@@ -61,5 +61,8 @@ JOIN fornecedores ON produto_fornecedor.pf_forn_id = fornecedores.frn_id
 JOIN marcas ON marcas.mrc_id = produtos.prd_marca_id;
 
 ```
+![view3](produto_fornecedores_marcas.png)
 
-###
+### Crie uma view que mostra todos os produtos com estoque abaixo do mínimo
+
+
