@@ -14,4 +14,4 @@ from produtos
 -- Esta cláusula une as tabelas "produtos" e "marcas" usando a coluna "mrc_id" como chave estrangeira.
 join marcas on marcas.mrc_id = produtos.prd_marca_id ;
 ```
-![view1](produto_marca.png)
+![view1](.png)
