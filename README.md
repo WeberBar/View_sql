@@ -76,3 +76,43 @@ WHERE prd_qtd_estoque < prd_estoque_mim;
 
 ```
 ![view4](abaixo_estoque.png)
+
+### Adicione o campo data de validade. Insira novos produtos com essa informação;
+
+```sql
+-- Altera a tabela `produtos` para adicionar uma coluna chamada `prd_data_validade` do tipo `date`
+alter table produtos add prd_data_validade date;
+
+-- Insere dois novos registros na tabela `produtos`
+INSERT INTO produtos (prd_nome, prd_qtd_estoque, prd_estoque_mim,  prd_perecivel, prd_valor, prd_marca_id, prd_data_validade) 
+VALUES ("Refrigerante cola sem açucar", 3, 4,  1, 9.00, 1, '2022-10-13'), ("Refrigerante de guarana", 10, 5,  1, 8.50,2, '2023-01-13');
+```
+![view5](adicionado.png)
+
+### Crie uma view que mostra todos os produtos e suas respectivas marcas com validade vencida;
+
+```sql
+-- Cria uma view chamada `Produtos_Vencidos`
+CREATE OR REPLACE VIEW Produtos_Vencidos AS
+
+-- Seleciona o ID, o nome e a data de validade dos produtos vencidos
+SELECT
+    prd_id,
+    prd_nome,
+    prd_data_validade
+FROM produtos
+WHERE prd_data_validade < CURDATE();
+
+```
+![view6](vencidos.png)
+
+### Selecionar os produtos com preço acima da média.
+
+```sql
+-- Seleciona todos os produtos com valor maior que a média de valor dos produtos
+SELECT *
+FROM produtos
+WHERE prd_valor > (SELECT AVG(prd_valor) FROM produtos);
+```
+
+![view7](acima_media.png)
